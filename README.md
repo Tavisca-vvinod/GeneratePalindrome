@@ -15,6 +15,7 @@ Constraints
 - Each character in baseString will be an uppercase letter ('A'-'Z'). 
   
 Examples 
+
 0)  "AABB"
 Returns: "ABBA"
  
