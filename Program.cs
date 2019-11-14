@@ -1,8 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 namespace Codejam
 {
     class PalindromeMaker
@@ -15,40 +14,23 @@ namespace Codejam
             foreach (Char letter in baseString)
             {
                 if (letterCount.ContainsKey(letter))
-                {
                     letterCount[letter] += 1;
-                }
                 else
-                {
                     letterCount[letter] = 1;
-                }
             }
             foreach (int countOfLetter in letterCount.Values)
             {
                 if (countOfLetter % 2 == 0)
-                {
-                    evenCountLetters++;
-                }
-                else
-                {
-                    oddCountLetters++;
-                }
+                    evenCountLetters++;             //evenCountLetters= letterCount.Where(p => p.Value %2 == 0).Count();
+                else               
+                    oddCountLetters++;            //oddCountLetters = letterCount.Where(p => p.Value % 2 != 0).Count();
             }
-            //evenCountLetters= letterCount.Where(p => p.Value %2 == 0).Count();
-            //oddCountLetters = letterCount.Where(p => p.Value % 2 != 0).Count();
-
             if (evenCountLetters + oddCountLetters == 1)
-            {
                 return baseString;
-            }
             if (oddCountLetters <= 1)
-            {
                 return MakePalindrome(baseString, new SortedDictionary<Char, int>(letterCount));
-            }
             else
-            {
                 return "";
-            }
         }
         public static String MakePalindrome(String baseString, SortedDictionary<Char, int> letterCount)
         {
@@ -76,8 +58,6 @@ namespace Codejam
             }
             return new string(PalindromeCharacterArray);
         }
-
-        #region Testing code Do not change
         public static void Main(String[] args)
         {
             String input = Console.ReadLine();
@@ -88,6 +68,5 @@ namespace Codejam
                 input = Console.ReadLine();
             } while (input != "-1");
         }
-        #endregion
     }
 }
